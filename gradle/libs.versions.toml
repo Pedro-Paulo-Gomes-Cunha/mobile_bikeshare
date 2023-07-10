@@ -9,6 +9,7 @@ constraintlayout = "2.1.4"
 annotation = "1.6.0"
 lifecycle-livedata-ktx = "2.6.1"
 lifecycle-viewmodel-ktx = "2.6.1"
+gridlayout = "1.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -20,6 +21,7 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+androidx-gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

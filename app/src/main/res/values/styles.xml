@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView9
+
+    <style name="C_Components">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:height">250dp</item>
+        <item name="android:background">@drawable/bkcomponent</item>
+    </style>
+
+    <style name="C_Components2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:height">532dp</item>
+        <item name="android:background">@drawable/bkcomponent</item>
+    </style>
+
+    <style name="C_User">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:height">532dp</item>
+        <item name="android:background">@drawable/bkuserimage</item>
+    </style>
+
+
+</resources>
