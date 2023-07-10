@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5CA13"
+    android:background="#F0F0F0"
     android:clickable="false"
     android:visibility="visible"
     tools:context=".MainActivity"
@@ -39,6 +39,7 @@
     <ImageView
         android:id="@+id/UserImage"
 
+        style="@style/C_User"
         android:layout_width="128dp"
         android:layout_height="129dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,6 @@
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/C_User"
         app:layout_constraintVertical_bias="0.074"
         tools:srcCompat="@tools:sample/avatars" />
 
