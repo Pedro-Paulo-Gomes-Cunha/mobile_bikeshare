@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
- private TextView logup;
+ private TextView logup,TextFails;
  private Button logar;
+ EditText TextEmail, TextPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,24 @@ public class MainActivity extends AppCompatActivity {
         this.logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,activity_principal.class);
-                startActivity(intent);
+                String text1= TextEmail.getText().toString();
+                if(text1.isEmpty()){
+                    TextFails.setText("Digite Seu Email");
+                    return;
+                }
+                String text2= TextPassword.getText().toString();
+                if(text2.isEmpty()){
+                    TextFails.setText("Digite a Senha");
+                    return;
+                }
+                if(text1.equals("admin@bike.com") && text2.equals("admin")){
+                    Intent intent=new Intent(MainActivity.this,activity_principal.class);
+                    startActivity(intent);
+                }else{
+                    TextFails.setText("Email ou Senha Incorrecta");
+                    return;
+                }
+
             }
         });
 
@@ -39,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     private void Iniciar(){
         this.logup=findViewById(R.id.logup);
         this.logar=findViewById(R.id.logar);
-
+        this.TextEmail=(EditText)findViewById(R.id.TextEmail);
+        this.TextPassword=(EditText)findViewById(R.id.TextPassword);
+        this.TextFails=findViewById(R.id.textFails);
     }
 }
