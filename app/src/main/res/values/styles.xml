@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -24,5 +25,9 @@
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
+      <!--  <item name="android:statusBarColor" tools:targetApi="lollipop">#00000000</item>-->
+
     </style>
+
+
 </resources>

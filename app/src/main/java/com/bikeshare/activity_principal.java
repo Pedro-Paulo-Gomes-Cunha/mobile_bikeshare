@@ -28,7 +28,7 @@ public class activity_principal extends AppCompatActivity implements NavigationV
         //toolbar
         setSupportActionBar(bar);
 
-        Nav.bringToFront(); //Efeito de clique nos itens do menu
+       Nav.bringToFront(); //Efeito de clique nos itens do menu
 
         ////Navegation Menu
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,draw,bar,R.string.navi_opem, R.string.navi_close);

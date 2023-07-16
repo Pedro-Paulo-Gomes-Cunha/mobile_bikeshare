@@ -9,12 +9,14 @@ android {
 
     defaultConfig {
         applicationId = "com.bikeshare"
-        minSdk = 16
+        minSdk = 19
+
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -41,10 +43,15 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.gridlayout)
+    implementation(libs.play.services.ads)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+
+
+
 
 
 }
