@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.bikeshare"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.bikeshare"
@@ -26,8 +26,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = VERSION_1_8
+        targetCompatibility = VERSION_1_8
     }
     buildFeatures {
         viewBinding = true
