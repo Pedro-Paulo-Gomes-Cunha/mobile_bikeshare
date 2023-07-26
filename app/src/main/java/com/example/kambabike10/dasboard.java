@@ -65,8 +65,8 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case R.id._docas:
+        switch (item.getTitleCondensed().toString()){
+            case "Docas":
                 Intent t=new Intent(dasboard.this,Docas.class);
                 startActivity(t);
                 break;
