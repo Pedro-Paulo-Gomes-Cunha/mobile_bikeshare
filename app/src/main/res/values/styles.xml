@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources xmlns:tools="http://schemas.android.com/tools">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9
+
+        <style name="C_Components">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:height">250dp</item>
+            <item name="android:background">@drawable/bkcomponent</item>
+        </style>
+
+       <!-- <style name="C_Components2">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:height">532dp</item>
+            <item name="android:background">@drawable/bkcomponent</item>
+        </style>-->
+
+        <!--<style name="C_User">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:height">532dp</item>
+            <item name="android:background">@drawable/bkuserimage</item>
+        </style>-->
+        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+            <!--  <item name="android:statusBarColor" tools:targetApi="lollipop">#00000000</item>-->
+
+        </style>
+
+</resources>
