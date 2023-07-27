@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         logup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             /*   Intent intent1= new Intent(MainActivity.this,activity_cadastrar.class);
-                startActivity(intent1);*/
+               Intent intent1= new Intent(MainActivity.this,cadastrar.class);
+                startActivity(intent1);
             }
         });
 
