@@ -7,24 +7,25 @@
             android:icon="@drawable/home"/>
 
         <item
+            android:id="@+id/nav_estacoes"
+            android:title="Estações"
+            android:icon="@drawable/check"/>
+
+        <item
             android:id="@+id/_docas"
             android:title="Docas"
             android:icon="@drawable/check"/>
 
-        <item
-            android:id="@+id/nav_home2"
-            android:title="Teste_2"
-            android:icon="@drawable/check"/>
     </group>
 
 
     <item
-        android:title="Perfil_">
+        android:title="Perfil">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_home3"
-                    android:title="Perfil1"
+                    android:id="@+id/nav_user"
+                    android:title="Usuário"
                     android:icon="@drawable/check"/>
 
                 <item
@@ -37,11 +38,11 @@
 
 
 
-    <item android:title="communicate">
+    <item android:title="Outras Opções">
         <menu>
             <item
                 android:id="@+id/nav_home6"
-                android:title="Share"
+                android:title="Partilhe"
                 android:icon="@drawable/check"/>
 
             <item
