@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context=".MainActivity2">
 
     <TextView
@@ -12,8 +13,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="Bike"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@color/p1"
         android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/TextEmail"
@@ -34,42 +36,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.145"
+        app:layout_constraintVertical_bias="0.212"
         tools:visibility="visible" />
+
 
     <Button
         android:id="@+id/logar"
+        style="@style/button"
         android:layout_width="243dp"
         android:layout_height="70dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="54dp"
+
         android:text="Entrar"
+        android:textColorLink="@color/pink_light"
         android:textSize="24sp"
         android:visibility="visible"
-        app:backgroundTint="#0069D9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
-
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <EditText
         android:id="@+id/TextEmail"
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="319dp"
         android:layout_height="54dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="375dp"
         android:drawableRight="@drawable/icon_mail"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:guidelineUseRtl="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/TextPassword"
@@ -82,14 +90,14 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextEmail"
-        app:layout_constraintVertical_bias="0.017" />
+        app:layout_constraintVertical_bias="0.068" />
 
     <TextView
         android:id="@+id/textView10"
@@ -98,7 +106,7 @@
         android:fontFamily="serif"
         android:text="Kamba"
         android:textAllCaps="false"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="#FDBC01"
         android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/TextEmail"
@@ -117,7 +125,7 @@
         android:onClick="log"
         android:singleLine="true"
         android:text="Criar uma conta"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
         android:textColorLink="@android:color/holo_green_dark"
         android:textIsSelectable="false"
         android:textSize="16sp"

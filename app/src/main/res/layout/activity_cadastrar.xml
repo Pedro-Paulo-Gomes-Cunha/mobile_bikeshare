@@ -4,72 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context=".cadastrar">
 
-   <ImageView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="228dp"
         android:layout_height="77dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.018"
         app:srcCompat="@drawable/bike" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="112dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="serif"
-        android:text="Bike"
+        android:text="Kamba"
         android:textAllCaps="false"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="#FDBC01"
         android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/TextEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="124dp"
-        android:layout_height="45dp"
-        android:fontFamily="serif"
-        android:text="Kamba"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="34sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877" />
+        app:layout_constraintVertical_bias="0.474" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Bike"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/p1"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/TextEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
 
     <view
         android:id="@+id/view"
         style="@style/C_Components2"
         class="androidx.appcompat.widget.ActionMenuView"
-        android:layout_width="344dp"
-        android:layout_height="532dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="356dp"
+        android:layout_height="432dp"
+        android:layout_marginBottom="140dp"
 
 
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.1"
         tools:visibility="visible" />
 
     <EditText
@@ -111,12 +109,15 @@
 
     <Button
         android:id="@+id/logar"
+        style="@style/button"
         android:layout_width="215dp"
         android:layout_height="56dp"
-        android:text="Salvar"
+        android:background="@drawable/btnfundo"
+        android:text="Concluir"
+        android:textColorHighlight="@android:color/transparent"
+        android:textColorLink="@android:color/transparent"
         android:textSize="20sp"
         android:visibility="visible"
-        app:backgroundTint="#0069D9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,21 +126,24 @@
 
     <Button
         android:id="@+id/Cancelar"
+        style="@style/button2"
         android:layout_width="203dp"
         android:layout_height="53dp"
+
+        android:background="@drawable/btnfundo2"
         android:text="Cancelar"
         android:textColorHighlight="@color/white"
         android:textColorLink="@color/white"
         android:textSize="20sp"
         android:visibility="visible"
-        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintVertical_bias="0.761"
+        app:rippleColor="@android:color/transparent" />
 
-  <EditText
+    <EditText
         android:id="@+id/TextEmail"
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="317dp"
@@ -175,14 +179,14 @@
         app:layout_constraintTop_toBottomOf="@+id/TextEmail"
         app:layout_constraintVertical_bias="0.043" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/logup"
         android:layout_width="271dp"
         android:layout_height="30dp"
         android:linksClickable="true"
         android:singleLine="true"
         android:text="Depois de se cadastrar faça o login."
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
         android:textColorLink="@android:color/holo_green_dark"
         android:textIsSelectable="false"
         android:textSize="16sp"
@@ -191,7 +195,7 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.276" />-->
 
     <EditText
         android:id="@+id/Nome"

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".dasboard"
     android:visibility="visible"
+    android:background="@drawable/fundo"
     android:id="@+id/drawlayout"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">

@@ -31,6 +31,12 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
         //inicializando componentes
         iniciar();
 
+
+        //side start
+        side();
+    }
+
+    private void side(){
         //toolbar
         setSupportActionBar(bar);
 
@@ -41,10 +47,10 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
         draw.addDrawerListener(toggle);
         toggle.syncState();
 
-       Nav.setNavigationItemSelectedListener(this);
+        Nav.setNavigationItemSelectedListener(this);
 
-       Menu menu=Nav.getMenu();
-       menu.findItem(R.id.nav_home7).setVisible(true);
+        Menu menu=Nav.getMenu();
+        menu.findItem(R.id.nav_home7).setVisible(true);
     }
     private void iniciar(){
         draw=findViewById(R.id.drawlayout);
@@ -70,9 +76,12 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
                 Intent t=new Intent(dasboard.this,Docas.class);
                 startActivity(t);
                 break;
-        /*    case R.id.nav_home6:
+           case "Sair":
                 Toast.makeText(this,"Share", Toast.LENGTH_SHORT).show();
-                break;*/
+
+               Intent t1=new Intent(dasboard.this,Chat.class);
+               startActivity(t1);
+                break;
 
         }
         return true;
