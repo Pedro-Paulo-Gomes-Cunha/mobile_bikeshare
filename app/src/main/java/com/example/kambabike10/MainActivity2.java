@@ -2,14 +2,21 @@ package com.example.kambabike10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 import com.example.kambabike10.Conexao.Conexao;
+import com.example.kambabike10.Helpers.Principal;
+import com.example.kambabike10.Helpers.Principal;
+import com.example.kambabike10.Helpers.UserData;
+import com.example.kambabike10.Model.Usuario;
 
 import java.io.IOException;
 
@@ -27,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+
        logup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,11 +42,11 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent1);*/
 
                 String t1="oo";
-                try {
-                    t1= Conexao.NewConexao2("");
+                /*try {
+                    t1= Conexao.Conexao2();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }
+                }*/
                 TextEmail.setText(t1);
             }
       });
@@ -46,8 +54,8 @@ public class MainActivity2 extends AppCompatActivity {
         this.logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text1= TextEmail.getText().toString();
-               /* if(text1.isEmpty()){
+              /*  String text1= TextEmail.getText().toString();
+                if(text1.isEmpty()){
                     TextFails.setText("Digite Seu Email");
                     return;
                 }
@@ -55,16 +63,15 @@ public class MainActivity2 extends AppCompatActivity {
                 if(text2.isEmpty()){
                     TextFails.setText("Digite a Senha");
                     return;
-                }*/
-               // if(text1.equals("admin@bike.com") && text2.equals("admin")){
-                    Intent intent=new Intent(MainActivity2.this,Chat.class);
-                    startActivity(intent);
-            /*    }else{
-                    TextFails.setText("Email ou Senha Incorrecta");
-                    return;
-                }*/
+                }
+               if(text1.equals("admin@bike.com") && text2.equals("admin")){
+                    */
 
-            }
+                   Intent intent=new Intent(MainActivity2.this,Chat.class);
+                    startActivity(intent);
+
+
+            }//}
         });
 
     }
@@ -78,3 +85,4 @@ public class MainActivity2 extends AppCompatActivity {
         this.TextFails=findViewById(R.id.textFails);
     }
 }
+

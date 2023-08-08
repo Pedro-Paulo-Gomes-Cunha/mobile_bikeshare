@@ -2,11 +2,14 @@ package com.example.kambabike10;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.kambabike10.Helpers.Principal;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Inializando a interação da tela cadastro com a tela de login
         Iniciar();
+        SharedPreferences pref= getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+        if(pref.contains("UserEmail")){
+            this.TextEmail.setText(pref.getString("UserEmail", ""));
+        }
+
+
         logup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +40,18 @@ public class MainActivity extends AppCompatActivity {
         this.logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
+                Principal.get_Principal().setTeste("dgdg");
+
+                SharedPreferences pref= getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                //UserEmail, UserId, UserName
+                editor.putString("Nome","Angola");
+                editor.commit();
+
+                /*
                 String text1= TextEmail.getText().toString();
                 if(text1.isEmpty()){
                     TextFails.setText("Digite Seu Email");
@@ -40,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 if(text2.isEmpty()){
                     TextFails.setText("Digite a Senha");
                     return;
-                }
-                if(text1.equals("admin@bike.com") && text2.equals("admin")){
+                }*/
+             //   if(text1.equals("admin@bike.com") && text2.equals("admin")){
                     Intent intent=new Intent(MainActivity.this,dasboard.class);
                     startActivity(intent);
-                }else{
+               /* }else{
                     TextFails.setText("Email ou Senha Incorrecta");
                     return;
-                }
+                }*/
 
             }
         });

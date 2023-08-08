@@ -13,17 +13,18 @@ import java.util.Scanner;
 
 public  class  Conexao extends AsyncTask<Void, Void, String> {
     public static String URL_1="";
-    public static  String URL_2="";
+    public static  String  Action="";
 
-    public Conexao(){
-
+    public Conexao(String path, String Method){
+        Action=Method;
+        URL_1=path;
     }
 
     @Override
     protected String doInBackground(Void... voids) {
 
         try {
-            return NewConexao2("");
+            return NewConexao2();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -77,20 +78,21 @@ public  class  Conexao extends AsyncTask<Void, Void, String> {
         return buffer.toString();
     }
 
-    public static String NewConexao2(String caminho) throws IOException {
+    public static String NewConexao2() throws IOException {
         StringBuilder resposta = new StringBuilder();
         // if omitido
 
-
         try {
-            URL url = new URL("https://api.funtranslations.com/translate/pirate.json?text=Hello%20sir%21%20my%20mother%20goes%20with%20me%20to%20the%20ocean");
+            URL url = new URL(URL_1);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
+            connection.setRequestMethod(Action.toUpperCase());
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
+            connection.setRequestProperty("login","p@test56");
+            connection.setRequestProperty("senha","123");
             connection.setConnectTimeout(5000);
-
+            //BasicHttpParams body=new BasicHttpParams();
 
             Scanner scanner = new Scanner(url.openStream());
             while (scanner.hasNext()) {
