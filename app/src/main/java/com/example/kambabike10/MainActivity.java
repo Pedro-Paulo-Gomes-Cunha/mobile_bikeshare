@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.kambabike10.Controller.UsuarioController;
 import com.example.kambabike10.Helpers.Principal;
+
+import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
             this.TextEmail.setText(pref.getString("UserEmail", ""));
         }
 
+
+        UsuarioController dado =new UsuarioController();
+
+        try {
+           TextFails.setText(dado.Logar());
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         logup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences pref= getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 //UserEmail, UserId, UserName
-                editor.putString("Nome","Angola");
+                editor.putString("UserEmail","Angola");
                 editor.commit();
 
                 /*

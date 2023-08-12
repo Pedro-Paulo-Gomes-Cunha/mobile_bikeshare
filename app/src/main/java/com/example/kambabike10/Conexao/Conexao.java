@@ -89,8 +89,7 @@ public  class  Conexao extends AsyncTask<Void, Void, String> {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
-            connection.setRequestProperty("login","p@test56");
-            connection.setRequestProperty("senha","123");
+
             connection.setConnectTimeout(5000);
             //BasicHttpParams body=new BasicHttpParams();
 
