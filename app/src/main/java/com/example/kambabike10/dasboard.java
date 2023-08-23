@@ -8,6 +8,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +18,20 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.kambabike10.Helpers.DocaAdapter;
+import com.example.kambabike10.Model.Doca;
+import com.example.kambabike10.databinding.ActivityDasboardBinding;
+import com.example.kambabike10.databinding.ActivityDocasBinding;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+
 public class dasboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+
+
+    public final ArrayList<Doca> DocaList=new ArrayList<>();
+    private ActivityDasboardBinding binding;
     DrawerLayout draw;
     NavigationView Nav;
     androidx.appcompat.widget.Toolbar bar;
@@ -27,13 +40,21 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dasboard);
 
-
         //inicializando componentes
-        iniciar();
 
+        iniciar();
 
         //side start
         side();
+
+
+
+
+        MostrarDocas();
+
+
+
+
     }
 
     private void side(){
@@ -85,5 +106,36 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
 
         }
         return true;
+    }
+
+    private void CarregarDocas(){
+        Doca dado=new Doca(1,"001",R.drawable.on,"Kilamba","10");
+        Doca dado1=new Doca(2,"002",R.drawable.on,"Camama","10");
+        Doca dado2=new Doca(3,"003",R.drawable.on,"Kilamba","10");
+        Doca dado3=new Doca(4,"004",R.drawable.off,"Luanda","10");
+        Doca dado4=new Doca(5,"005",R.drawable.on,"Kilamba","10");
+        Doca dado5=new Doca(6,"006",R.drawable.on,"Kilamba","10");
+
+
+        DocaList.add( dado);
+        DocaList.add( dado1);
+        DocaList.add( dado2);
+        DocaList.add( dado3);
+        DocaList.add( dado4);
+        DocaList.add( dado5);
+
+    }
+
+    private void MostrarDocas(){
+
+        binding= ActivityDasboardBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        RecyclerView ricycle =binding.ListaDocas;
+        ricycle.setLayoutManager(new LinearLayoutManager(this));
+        ricycle.setHasFixedSize(true);
+        CarregarDocas();
+
+        DocaAdapter adapter =new DocaAdapter(DocaList,this);
+        ricycle.setAdapter(adapter);
     }
 }

@@ -1,12 +1,8 @@
 package com.example.kambabike10.Controller;
 
-import android.util.JsonReader;
-
 import com.example.kambabike10.Conexao.Conexao;
 import com.example.kambabike10.Dto.Login;
 import com.example.kambabike10.Helpers.Principal;
-import com.example.kambabike10.Model.Usuario;
-import com.google.gson.Gson;
 
 import java.util.concurrent.ExecutionException;
 

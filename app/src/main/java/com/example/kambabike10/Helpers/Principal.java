@@ -18,7 +18,7 @@ public class Principal{// extends Application {
         UrlGeral = urlGeral;
     }
 
-    private static  String UrlGeral="https//ebd8-102-214-36-48.ngrok.io";
+    private static  String UrlGeral="https://7bd0-102-214-36-182.ngrok.io";
 
     public synchronized  static Principal get_Principal() {
         if(_Principal==null){

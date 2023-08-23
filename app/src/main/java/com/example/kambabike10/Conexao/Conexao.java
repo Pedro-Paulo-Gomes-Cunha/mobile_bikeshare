@@ -2,6 +2,8 @@ package com.example.kambabike10.Conexao;
 
 import android.os.AsyncTask;
 
+import com.example.kambabike10.Helpers.Principal;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +33,8 @@ public  class  Conexao extends AsyncTask<Void, Void, String> {
 
     }
 
-    public static Object NewConexao(String caminho) throws IOException {
-        URL_1="https://api.funtranslations.com/translate/pirate.json?text=Hello%20sir%21%20my%20mother%20goes%20with%20me%20to%20the%20ocean";
+    public static Object NewConexao() throws IOException {
+
         String Resultado="";
         URL api = new URL(URL_1);
         int codigoConexão;
@@ -83,7 +85,7 @@ public  class  Conexao extends AsyncTask<Void, Void, String> {
         // if omitido
 
         try {
-            URL url = new URL(URL_1);
+            URL url = new URL(Principal.getUrlGeral());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod(Action.toUpperCase());
             connection.setRequestProperty("Content-type", "application/json");

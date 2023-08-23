@@ -1,7 +1,7 @@
 package com.example.kambabike10.Model;
 
 public class Usuario {
-   public Integer Id;
+   public int Id;
    public String Nome;
    public String login;
    public String Senha;
@@ -11,7 +11,7 @@ public class Usuario {
       return Id;
    }
 
-   public void setId(Integer id) {
+   public void setId(int id) {
       Id = id;
    }
 
@@ -45,5 +45,15 @@ public class Usuario {
 
    public void setPerfil(String perfil) {
       Perfil = perfil;
+   }
+
+   @Override
+   public String toString() {
+      return "Id: " + getId()
+              + "\nSenha: " + getSenha()
+              + "\nLogin: " + getLogin()
+              + "\nPerfil: " + getPerfil()
+              + "\nNome:" + getNome();
+
    }
 }
