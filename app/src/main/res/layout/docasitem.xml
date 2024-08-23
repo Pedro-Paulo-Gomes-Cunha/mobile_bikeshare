@@ -5,12 +5,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
+    tools:context=".DocasItem"
     >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/conteinerImg"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_margin="20dp"
         app:cardElevation="8dp"
         app:cardBackgroundColor="@color/white"
@@ -83,40 +84,27 @@
         tools:ignore="MissingConstraints"
         />
 
+
     <TextView
         android:id="@+id/bonus"
-        app:layout_constraintStart_toEndOf="@id/conteinerImg"
-        app:layout_constraintTop_toBottomOf="@id/estacaoId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="1pt"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/levantar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="4dp"
-        android:text="Levantar"
+        android:text="Prémio: 1pt"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/bonus"
-        app:layout_constraintTop_toBottomOf="@id/estacaoId"
-        tools:ignore="MissingConstraints"
-        />
+        app:layout_constraintStart_toEndOf="@id/conteinerImg"
+        app:layout_constraintTop_toBottomOf="@id/estacaoId" />
 
-        <View
+    <View
             android:id="@+id/teste"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/levantar"
+            app:layout_constraintTop_toBottomOf="@id/bonus"
             app:layout_constraintStart_toEndOf="parent"
             android:layout_margin="20dp"
             tools:ignore="MissingConstraints"/>

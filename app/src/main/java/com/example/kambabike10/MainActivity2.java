@@ -2,23 +2,12 @@ package com.example.kambabike10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-
-import com.example.kambabike10.Conexao.Conexao;
-import com.example.kambabike10.Helpers.Principal;
-import com.example.kambabike10.Helpers.Principal;
-import com.example.kambabike10.Helpers.UserData;
-import com.example.kambabike10.Model.Usuario;
-
-import java.io.IOException;
 
 public class MainActivity2 extends AppCompatActivity {
     private TextView logup,TextFails;
@@ -80,8 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
     private void Iniciar(){
         this.logup=findViewById(R.id.logup);
         this.logar=findViewById(R.id.logar);
-        this.TextEmail=(EditText)findViewById(R.id.TextEmail);
-        this.TextPassword=(EditText)findViewById(R.id.TextPassword);
+        this.TextEmail=(EditText)findViewById(R.id.textEmail);
+        this.TextPassword=(EditText)findViewById(R.id.txtPassword);
         this.TextFails=findViewById(R.id.textFails);
     }
 }

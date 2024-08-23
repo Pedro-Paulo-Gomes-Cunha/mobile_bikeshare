@@ -1,11 +1,23 @@
 package com.example.kambabike10.Model;
 
+import com.example.kambabike10.Dto.UsuarioDto;
+
 public class Usuario {
    public int Id;
    public String Nome;
    public String login;
    public String Senha;
    public String Perfil;
+
+   public Double saldo;
+
+   public Double getSaldo() {
+      return this.saldo;
+   }
+
+   public void setSaldo(Double saldo) {
+      this.saldo = saldo;
+   }
 
    public Integer getId() {
       return Id;
@@ -55,5 +67,9 @@ public class Usuario {
               + "\nPerfil: " + getPerfil()
               + "\nNome:" + getNome();
 
+   }
+
+   public UsuarioDto ToDto(){
+      return new UsuarioDto(this.getNome(),this.getLogin(),this.getSenha(),this.getPerfil(),this.getSaldo());
    }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fundo"
+    android:background="@color/p1"
     tools:context=".MainActivity2">
 
     <TextView
@@ -15,15 +15,16 @@
         android:text="Bike"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/p1"
+        android:textColor="#FDBC01"
         android:textSize="34sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/TextEmail"
+        app:layout_constraintBottom_toTopOf="@+id/textEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.741" />
+
 
     <view
         android:id="@+id/view"
@@ -36,13 +37,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.212"
+        app:layout_constraintVertical_bias="0.143"
         tools:visibility="visible" />
-
 
     <Button
         android:id="@+id/logar"
-        style="@style/button"
+
         android:layout_width="243dp"
         android:layout_height="70dp"
         android:layout_marginStart="54dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <EditText
-        android:id="@+id/TextEmail"
+        android:id="@+id/textEmail"
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="319dp"
         android:layout_height="54dp"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/TextPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:drawableRight="@drawable/icon_senha"
@@ -96,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textEmail"
         app:layout_constraintVertical_bias="0.068" />
 
     <TextView
@@ -109,7 +109,7 @@
         android:textColor="#FDBC01"
         android:textSize="34sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/TextEmail"
+        app:layout_constraintBottom_toTopOf="@+id/textEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
@@ -175,4 +175,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar_cyclic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        android:visibility="invisible"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="340dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/textEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

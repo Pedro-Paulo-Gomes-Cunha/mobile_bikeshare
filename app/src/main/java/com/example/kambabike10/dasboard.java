@@ -8,49 +8,83 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.example.kambabike10.Helpers.DocaAdapter;
-import com.example.kambabike10.Model.Doca;
+import com.example.kambabike10.Conexao.RetrofitConfig;
+import com.example.kambabike10.Dto.DocaDto2;
+import com.example.kambabike10.Helpers.Adaptador;
+import com.example.kambabike10.Helpers.Principal;
 import com.example.kambabike10.databinding.ActivityDasboardBinding;
-import com.example.kambabike10.databinding.ActivityDocasBinding;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class dasboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+public class dasboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,AdapterView.OnItemClickListener{
 
+    private Handler handler;
 
-    public final ArrayList<Doca> DocaList=new ArrayList<>();
+    public List<DocaDto2> DocaList=null;
     private ActivityDasboardBinding binding;
     DrawerLayout draw;
     NavigationView Nav;
     androidx.appcompat.widget.Toolbar bar;
+    ListView listarDocas;
+    TextView Nome, Saldo;
+    ImageView ima;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dasboard);
 
         //inicializando componentes
-
         iniciar();
-
         //side start
         side();
-
-
-
-
         MostrarDocas();
+
+        listarDocas.setOnItemClickListener(this);
+
+        ima=findViewById(R.id.imageView2);
+
+       /* ima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MostrarDocas();
+
+                Toast.makeText(getApplicationContext(),"Atualizou", Toast.LENGTH_LONG).show();
+            }
+        });*/
+
+
+
+
+
+           this.Nome.setText(Principal.UserDados.getNome());
+
+           this.Saldo.setText("Saldo: "+Principal.UserDados.getSaldo()+"pts");
 
 
 
@@ -59,7 +93,7 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
 
     private void side(){
         //toolbar
-        setSupportActionBar(bar);
+
 
         Nav.bringToFront(); //Efeito de clique nos itens do menu
 
@@ -77,6 +111,10 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
         draw=findViewById(R.id.drawlayout);
         Nav=findViewById(R.id.nav_view);
         bar = findViewById(R.id.toolbar);
+        listarDocas=(ListView) findViewById(R.id.listdocas1);
+        Nome= findViewById(R.id.textView);
+        Saldo= findViewById(R.id.textView2);
+
     }
 
     @Override
@@ -108,34 +146,57 @@ public class dasboard extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
-    private void CarregarDocas(){
-        Doca dado=new Doca(1,"001",R.drawable.on,"Kilamba","10");
-        Doca dado1=new Doca(2,"002",R.drawable.on,"Camama","10");
-        Doca dado2=new Doca(3,"003",R.drawable.on,"Kilamba","10");
-        Doca dado3=new Doca(4,"004",R.drawable.off,"Luanda","10");
-        Doca dado4=new Doca(5,"005",R.drawable.on,"Kilamba","10");
-        Doca dado5=new Doca(6,"006",R.drawable.on,"Kilamba","10");
 
 
-        DocaList.add( dado);
-        DocaList.add( dado1);
-        DocaList.add( dado2);
-        DocaList.add( dado3);
-        DocaList.add( dado4);
-        DocaList.add( dado5);
-
-    }
 
     private void MostrarDocas(){
+        Call<List<DocaDto2>> call = new RetrofitConfig().GetDocaService().DocaList();
+        try {
+            call.enqueue(new Callback<List<DocaDto2>>() {
 
-        binding= ActivityDasboardBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        RecyclerView ricycle =binding.ListaDocas;
-        ricycle.setLayoutManager(new LinearLayoutManager(this));
-        ricycle.setHasFixedSize(true);
-        CarregarDocas();
+                @Override
+                public void onResponse(Call<List<DocaDto2>> call, Response<List<DocaDto2>> response) {
+                    List<DocaDto2> res =response.body();
+                    assert res!=null;
 
-        DocaAdapter adapter =new DocaAdapter(DocaList,this);
-        ricycle.setAdapter(adapter);
+                    Adaptador dados =new Adaptador(res,getApplicationContext());
+                    listarDocas.setAdapter(dados);
+                }
+                @Override
+                public void onFailure(Call<List<DocaDto2>> call, Throwable t) {
+                    Log.e("DocaService ", "Erro ao buscar o Docas:" + t.getMessage());
+                }
+            });
+
+        }catch (Exception e){
+            Log.e("DocaService ", "Erro ao buscar o Docas:" + e.getMessage());
+        }
+
     }
+
+
+    /**
+     * @param parent   The AdapterView where the click happened.
+     * @param view     The view within the AdapterView that was clicked (this
+     *                 will be a view provided by the adapter)
+     * @param position The position of the view in the adapter.
+     * @param id       The row id of the item that was clicked.
+     */
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        DocaDto2 retorno=(DocaDto2) listarDocas.getAdapter().getItem( position);
+        Principal.setDoca(retorno);
+
+        Intent t=new Intent(this,Levantar.class);
+        if(retorno.getStatus()==0){
+            t.putExtra("Nome","Devolver");
+        }else{
+            t.putExtra("Nome","Levantar");
+        }
+
+
+        startActivity(t);
+
+    }
+
 }

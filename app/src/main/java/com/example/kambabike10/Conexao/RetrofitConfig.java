@@ -1,5 +1,7 @@
 package com.example.kambabike10.Conexao;
 
+import com.example.kambabike10.Sevice.DocaService;
+import com.example.kambabike10.Sevice.ShareService;
 import com.example.kambabike10.Sevice.UserService;
 
 import retrofit2.Retrofit;
@@ -12,7 +14,7 @@ public class RetrofitConfig {
 
     public RetrofitConfig() {
         this.retrofit1 = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.11:8040/")
+                .baseUrl("http://192.168.159.83:8041/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
@@ -20,5 +22,9 @@ public class RetrofitConfig {
     public UserService GetUserService() {
         return this.retrofit1.create(UserService.class);
     }
+
+    public DocaService GetDocaService(){ return this.retrofit1.create(DocaService.class);}
+
+    public ShareService GetShareService(){ return this.retrofit1.create(ShareService.class);}
 
 }

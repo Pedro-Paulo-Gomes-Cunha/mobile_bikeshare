@@ -6,6 +6,11 @@ public class Doca {
     int Status;
     String Estacao;
 
+    public Doca() {
+
+    }
+
+
     public Doca(int id, String nome, int status, String estacao, String bonus) {
         Id = id;
         Nome = nome;
